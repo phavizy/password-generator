@@ -28,6 +28,8 @@ const specialCharacters = [
 // Array of numeric characters to be included in password
 const numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
+
+
 // Array of lowercase characters to be included in password
 const lowerCasedCharacters = [
   'a',
@@ -88,6 +90,10 @@ const upperCasedCharacters = [
   'Z'
 ];
 
+//Global variable so it can easily be accessed
+  var password =''
+  var length=12;
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   var op1 = prompt('Do you want uppercase?[y/n]')
@@ -130,7 +136,7 @@ passet = passet.concat(specialCharacters)
 }else if(opt1==="n"&&opt2==="n"&&opt3==="n"){
 alert('You can\'t create a password ')
 }else{
-  alert('You enter the wrong value')
+  alert('You entered the wrong value')
 }
 
 }
@@ -138,6 +144,12 @@ alert('You can\'t create a password ')
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions()
+
+  for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * passet.length);
+                password += passet[randomIndex];
+            }
+return password
 
 }
 
