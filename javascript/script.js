@@ -99,8 +99,9 @@ function getPasswordOptions() {
   var op1 = prompt('Do you want uppercase?[y/n]')
   var op2 = prompt('Do you want lowercase?[y/n]')
   var op3 = prompt('Do you want special characters[y/n]')
+  var op4 = prompt('Do you want numbers [y/n]')
 
-  getRandom(op1,op2,op3)
+  getRandom(op1,op2,op3,op4)
             
             
 
@@ -117,16 +118,18 @@ function collector(){
 }
 
 // Function for getting a random element from an array
-function getRandom(a,b,c) {
+function getRandom(a,b,c,d) {
 
 opt1=a
 opt2=b
 opt3=c
+opt4=d
 
-if(opt1==="y"&&opt2==="y"&&opt3==="y"){
+if(opt1==="y"&&opt2==="y"&&opt3==="y"&&opt4==="y"){
 passet = passet.concat(specialCharacters)
 passet = passet.concat(lowerCasedCharacters)
 passet = passet.concat(specialCharacters)
+passet = passet.concat(numericCharacters)
 collector()
 }else if(opt1==="y"&&opt2==="y"&&opt3==="n"){
 passet = passet.concat(specialCharacters)
