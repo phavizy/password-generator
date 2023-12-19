@@ -92,7 +92,7 @@ const upperCasedCharacters = [
 
 //Global variable so it can easily be accessed
   var password =''
-  var length=12;
+  var length=15;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -107,6 +107,15 @@ function getPasswordOptions() {
 }
 var passet = [];
 
+function collector(){
+
+  password =''
+  for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * passet.length);
+                password += passet[randomIndex];
+            }
+}
+
 // Function for getting a random element from an array
 function getRandom(a,b,c) {
 
@@ -118,37 +127,46 @@ if(opt1==="y"&&opt2==="y"&&opt3==="y"){
 passet = passet.concat(specialCharacters)
 passet = passet.concat(lowerCasedCharacters)
 passet = passet.concat(specialCharacters)
+collector()
 }else if(opt1==="y"&&opt2==="y"&&opt3==="n"){
 passet = passet.concat(specialCharacters)
 passet = passet.concat(lowerCasedCharacters)
+collector()
 }else if(opt1==="y"&&opt2==="n"&&opt3==="n"){
 passet = passet.concat(specialCharacters)
+collector()
 }else if(opt1==="n"&&opt2==="y"&&opt3==="n"){
 passet = passet.concat(lowerCasedCharacters)
+collector()
 }else if(opt1==="n"&&opt2==="y"&&opt3==="y"){
 passet = passet.concat(lowerCasedCharacters)
 passet = passet.concat(specialCharacters)
+collector()
 }else if(opt1==="y"&&opt2==="n"&&opt3==="y"){
 passet = passet.concat(specialCharacters)
 passet = passet.concat(specialCharacters)
+collector()
 }else if(opt1==="n"&&opt2==="n"&&opt3==="y"){
 passet = passet.concat(specialCharacters)
+collector()
 }else if(opt1==="n"&&opt2==="n"&&opt3==="n"){
 alert('You can\'t create a password ')
+password ='Unable to Generate password'
 }else{
   alert('You entered the wrong value')
+  password ='Unable to Generate password'
+
 }
 
 }
+
+
 
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions()
 
-  for (let i = 0; i < length; i++) {
-                const randomIndex = Math.floor(Math.random() * passet.length);
-                password += passet[randomIndex];
-            }
+  
 return password
 
 }
